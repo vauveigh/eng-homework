@@ -1,0 +1,1484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Домашняя работа — Unit 5</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Домашняя работа — Unit 5" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Домашняя работа — Unit 5&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;english-homework-app&quot; class=&quot;eh-app&quot;&gt;
+  &lt;style&gt;
+    #english-homework-app {
+      --eh-green: #79a814;
+      --eh-green-dark: #567c08;
+      --eh-green-soft: #eff7da;
+      --eh-ink: #20251c;
+      --eh-muted: #66705e;
+      --eh-paper: #fffef9;
+      --eh-line: #dce5cf;
+      --eh-correct: #247a44;
+      --eh-correct-bg: #eaf7ee;
+      --eh-wrong: #b33a32;
+      --eh-wrong-bg: #fff0ee;
+      color: var(--eh-ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 22px 16px 42px;
+      background:
+        radial-gradient(circle at 4% 3%, rgba(121, 168, 20, .12), transparent 22rem),
+        var(--eh-paper);
+    }
+    #english-homework-app * { box-sizing: border-box; }
+    #english-homework-app .eh-hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 0 24px;
+      border-bottom: 2px solid var(--eh-green);
+    }
+    #english-homework-app .eh-kicker {
+      margin: 0 0 8px;
+      color: var(--eh-green-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    #english-homework-app h1 {
+      margin: 0;
+      max-width: 720px;
+      font-family: Georgia, &quot;Times New Roman&quot;, serif;
+      font-size: clamp(2rem, 5vw, 3.9rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+    #english-homework-app .eh-lead {
+      margin: 14px 0 0;
+      max-width: 660px;
+      color: var(--eh-muted);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+    #english-homework-app .eh-unit {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border: 2px solid var(--eh-green);
+      border-radius: 10px;
+      color: var(--eh-green-dark);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #english-homework-app .eh-progress-wrap { padding: 18px 0 4px; }
+    #english-homework-app .eh-progress-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      font-size: .9rem;
+      color: var(--eh-muted);
+    }
+    #english-homework-app .eh-progress-track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8eddc;
+    }
+    #english-homework-app .eh-progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--eh-green), #a9cf3b);
+      transition: width .3s ease;
+    }
+    #english-homework-app .eh-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+      align-items: start;
+    }
+    #english-homework-app .eh-section {
+      padding: 22px;
+      border: 1px solid var(--eh-line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 14px 34px rgba(54, 70, 28, .07);
+    }
+    #english-homework-app .eh-section-wide { grid-column: 1 / -1; }
+    #english-homework-app .eh-section-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 18px;
+    }
+    #english-homework-app .eh-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--eh-green);
+      color: white;
+      font-family: Georgia, &quot;Times New Roman&quot;, serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+    #english-homework-app h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, &quot;Times New Roman&quot;, serif;
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+    #english-homework-app .eh-instruction {
+      margin: 0;
+      color: var(--eh-muted);
+      line-height: 1.45;
+    }
+    #english-homework-app .eh-example {
+      margin: 0 0 18px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--eh-green);
+      background: var(--eh-green-soft);
+      color: #435529;
+      border-radius: 0 10px 10px 0;
+      line-height: 1.5;
+    }
+    #english-homework-app .eh-example strong { color: var(--eh-green-dark); }
+    #english-homework-app .eh-items { display: grid; gap: 14px; }
+    #english-homework-app .eh-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--eh-line);
+    }
+    #english-homework-app .eh-item:last-child { padding-bottom: 0; border-bottom: 0; }
+    #english-homework-app .eh-index {
+      padding-top: 8px;
+      color: var(--eh-green-dark);
+      font-weight: 800;
+    }
+    #english-homework-app .eh-question-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      min-height: 40px;
+      line-height: 1.45;
+    }
+    #english-homework-app input[type=&quot;text&quot;] {
+      min-width: 0;
+      border: 1px solid #bdcaaa;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--eh-ink);
+      font: inherit;
+      padding: 9px 11px;
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    #english-homework-app input[type=&quot;text&quot;]:focus {
+      border-color: var(--eh-green);
+      box-shadow: 0 0 0 3px rgba(121, 168, 20, .17);
+    }
+    #english-homework-app .eh-short { width: 112px; }
+    #english-homework-app .eh-full { width: 100%; }
+    #english-homework-app .eh-answer { margin-top: 8px; }
+    #english-homework-app .eh-label {
+      display: block;
+      margin: 0 0 6px;
+      color: var(--eh-muted);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    #english-homework-app .eh-feedback {
+      min-height: 1.3em;
+      margin: 6px 0 0;
+      font-size: .84rem;
+      line-height: 1.35;
+      color: var(--eh-muted);
+    }
+    #english-homework-app .is-correct {
+      border-color: var(--eh-correct) !important;
+      background: var(--eh-correct-bg) !important;
+    }
+    #english-homework-app .is-wrong {
+      border-color: var(--eh-wrong) !important;
+      background: var(--eh-wrong-bg) !important;
+    }
+    #english-homework-app .eh-feedback.correct { color: var(--eh-correct); }
+    #english-homework-app .eh-feedback.wrong { color: var(--eh-wrong); }
+    #english-homework-app .eh-rule {
+      margin-bottom: 18px;
+      padding: 16px;
+      border: 2px dotted var(--eh-green);
+      border-radius: 14px;
+      background: var(--eh-green-soft);
+      line-height: 1.55;
+    }
+    #english-homework-app .eh-rule p { margin: 0 0 7px; }
+    #english-homework-app .eh-rule p:last-child { margin-bottom: 0; }
+    #english-homework-app .eh-formula {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(121, 168, 20, .15);
+      font-weight: 800;
+    }
+    #english-homework-app .eh-choice-list { display: grid; gap: 13px; }
+    #english-homework-app .eh-choice-item {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 10px;
+      padding-bottom: 13px;
+      border-bottom: 1px dashed var(--eh-line);
+    }
+    #english-homework-app .eh-choice-item:last-child { border-bottom: 0; }
+    #english-homework-app .eh-options { display: grid; gap: 7px; }
+    #english-homework-app .eh-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #english-homework-app .eh-option:hover { background: #f5f8ee; }
+    #english-homework-app .eh-option input { margin-top: 3px; accent-color: var(--eh-green); }
+    #english-homework-app .eh-option-letter { color: var(--eh-green-dark); font-weight: 800; }
+    #english-homework-app .eh-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    #english-homework-app button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    #english-homework-app .eh-primary { background: var(--eh-green); color: white; }
+    #english-homework-app .eh-primary:hover { background: var(--eh-green-dark); }
+    #english-homework-app .eh-secondary { background: #edf1e6; color: var(--eh-ink); }
+    #english-homework-app .eh-result {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      text-align: center;
+      background: var(--eh-green-soft);
+      color: #3f5422;
+    }
+    #english-homework-app .eh-result.show { display: block; }
+    #english-homework-app .eh-result strong { font-size: 1.15rem; }
+    @media (max-width: 760px) {
+      #english-homework-app .eh-layout { grid-template-columns: 1fr; }
+      #english-homework-app .eh-section-wide { grid-column: auto; }
+    }
+    @media (max-width: 520px) {
+      #english-homework-app { padding-inline: 12px; }
+      #english-homework-app .eh-hero { display: block; }
+      #english-homework-app .eh-unit { display: inline-block; margin-top: 18px; }
+      #english-homework-app .eh-section { padding: 17px 14px; }
+      #english-homework-app .eh-section-head { gap: 10px; }
+      #english-homework-app .eh-number { width: 36px; height: 36px; font-size: 1.2rem; }
+      #english-homework-app .eh-short { width: 96px; }
+    }
+  &lt;/style&gt;
+
+  &lt;header class=&quot;eh-hero&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;eh-kicker&quot;&gt;Домашняя работа · английский язык&lt;/p&gt;
+      &lt;h1&gt;Present Simple&lt;br&gt;и наречия частоты&lt;/h1&gt;
+      &lt;p class=&quot;eh-lead&quot;&gt;Выполни три упражнения. Нажми «Проверить работу», чтобы увидеть ошибки и результат.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;eh-unit&quot;&gt;UNIT 5 · FREE TIME&lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;div class=&quot;eh-progress-wrap&quot; aria-label=&quot;Прогресс выполнения&quot;&gt;
+    &lt;div class=&quot;eh-progress-row&quot;&gt;&lt;span&gt;Прогресс&lt;/span&gt;&lt;strong id=&quot;eh-progress-text&quot;&gt;0 из 16&lt;/strong&gt;&lt;/div&gt;
+    &lt;div class=&quot;eh-progress-track&quot;&gt;&lt;div class=&quot;eh-progress-bar&quot; id=&quot;eh-progress-bar&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;main class=&quot;eh-layout&quot;&gt;
+    &lt;section class=&quot;eh-section&quot; aria-labelledby=&quot;eh-title-9&quot;&gt;
+      &lt;div class=&quot;eh-section-head&quot;&gt;
+        &lt;span class=&quot;eh-number&quot;&gt;9&lt;/span&gt;
+        &lt;div&gt;
+          &lt;h2 id=&quot;eh-title-9&quot;&gt;Do или Does?&lt;/h2&gt;
+          &lt;p class=&quot;eh-instruction&quot;&gt;Допиши вопросы, используя &lt;strong&gt;Do&lt;/strong&gt; или &lt;strong&gt;Does&lt;/strong&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;eh-example&quot;&gt;&lt;strong&gt;Пример:&lt;/strong&gt; &lt;u&gt;Do&lt;/u&gt; you live in Sydney?&lt;/p&gt;
+      &lt;div class=&quot;eh-items&quot; id=&quot;eh-ex9&quot;&gt;
+        &lt;div class=&quot;eh-item&quot; data-answer=&quot;does&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;1&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-question-line&quot;&gt;&lt;input class=&quot;eh-short&quot; type=&quot;text&quot; aria-label=&quot;Задание 9, вопрос 1&quot;&gt; &lt;span&gt;Pablo like sport?&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-answer=&quot;do&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;2&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-question-line&quot;&gt;&lt;input class=&quot;eh-short&quot; type=&quot;text&quot; aria-label=&quot;Задание 9, вопрос 2&quot;&gt; &lt;span&gt;you know the answer?&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-answer=&quot;does&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;3&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-question-line&quot;&gt;&lt;input class=&quot;eh-short&quot; type=&quot;text&quot; aria-label=&quot;Задание 9, вопрос 3&quot;&gt; &lt;span&gt;your sister play tennis?&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-answer=&quot;do&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;4&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-question-line&quot;&gt;&lt;input class=&quot;eh-short&quot; type=&quot;text&quot; aria-label=&quot;Задание 9, вопрос 4&quot;&gt; &lt;span&gt;you often go to the cinema?&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-answer=&quot;does&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;5&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-question-line&quot;&gt;&lt;input class=&quot;eh-short&quot; type=&quot;text&quot; aria-label=&quot;Задание 9, вопрос 5&quot;&gt; &lt;span&gt;your teacher give you a lot of homework?&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;eh-section&quot; aria-labelledby=&quot;eh-title-10&quot;&gt;
+      &lt;div class=&quot;eh-section-head&quot;&gt;
+        &lt;span class=&quot;eh-number&quot;&gt;10&lt;/span&gt;
+        &lt;div&gt;
+          &lt;h2 id=&quot;eh-title-10&quot;&gt;Составь вопросы&lt;/h2&gt;
+          &lt;p class=&quot;eh-instruction&quot;&gt;Запиши вопросы из данных слов. Затем дай правдивые ответы о себе.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;eh-example&quot;&gt;&lt;strong&gt;Пример:&lt;/strong&gt; your mother / speak English?&lt;br&gt;&lt;em&gt;Does your mother speak English?&lt;/em&gt;&lt;br&gt;&lt;em&gt;Yes, she does.&lt;/em&gt;&lt;/p&gt;
+      &lt;div class=&quot;eh-items&quot; id=&quot;eh-ex10&quot;&gt;
+        &lt;div class=&quot;eh-item&quot; data-question=&quot;do you always do your homework&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;1&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-label&quot;&gt;you / always do your homework?&lt;/div&gt;&lt;input class=&quot;eh-full eh-q&quot; type=&quot;text&quot; aria-label=&quot;Задание 10, вопрос 1&quot;&gt;&lt;div class=&quot;eh-answer&quot;&gt;&lt;label class=&quot;eh-label&quot;&gt;Твой ответ&lt;/label&gt;&lt;input class=&quot;eh-full eh-a&quot; type=&quot;text&quot; placeholder=&quot;Yes, I do. / No, I don’t.&quot; aria-label=&quot;Задание 10, ответ 1&quot;&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-question=&quot;does your best friend play the piano&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;2&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-label&quot;&gt;your best friend / play the piano?&lt;/div&gt;&lt;input class=&quot;eh-full eh-q&quot; type=&quot;text&quot; aria-label=&quot;Задание 10, вопрос 2&quot;&gt;&lt;div class=&quot;eh-answer&quot;&gt;&lt;label class=&quot;eh-label&quot;&gt;Твой ответ&lt;/label&gt;&lt;input class=&quot;eh-full eh-a&quot; type=&quot;text&quot; placeholder=&quot;Yes, he/she does. / No, he/she doesn’t.&quot; aria-label=&quot;Задание 10, ответ 2&quot;&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-question=&quot;do you sometimes play computer games before school&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;3&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-label&quot;&gt;you / sometimes play computer games before school?&lt;/div&gt;&lt;input class=&quot;eh-full eh-q&quot; type=&quot;text&quot; aria-label=&quot;Задание 10, вопрос 3&quot;&gt;&lt;div class=&quot;eh-answer&quot;&gt;&lt;label class=&quot;eh-label&quot;&gt;Твой ответ&lt;/label&gt;&lt;input class=&quot;eh-full eh-a&quot; type=&quot;text&quot; placeholder=&quot;Yes, I do. / No, I don’t.&quot; aria-label=&quot;Задание 10, ответ 3&quot;&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-question=&quot;do you and your friends play basketball&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;4&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-label&quot;&gt;you and your friends / play basketball?&lt;/div&gt;&lt;input class=&quot;eh-full eh-q&quot; type=&quot;text&quot; aria-label=&quot;Задание 10, вопрос 4&quot;&gt;&lt;div class=&quot;eh-answer&quot;&gt;&lt;label class=&quot;eh-label&quot;&gt;Твой ответ&lt;/label&gt;&lt;input class=&quot;eh-full eh-a&quot; type=&quot;text&quot; placeholder=&quot;Yes, we do. / No, we don’t.&quot; aria-label=&quot;Задание 10, ответ 4&quot;&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-item&quot; data-question=&quot;does your mum drive a big car&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;5&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-label&quot;&gt;your mum / drive a big car?&lt;/div&gt;&lt;input class=&quot;eh-full eh-q&quot; type=&quot;text&quot; aria-label=&quot;Задание 10, вопрос 5&quot;&gt;&lt;div class=&quot;eh-answer&quot;&gt;&lt;label class=&quot;eh-label&quot;&gt;Твой ответ&lt;/label&gt;&lt;input class=&quot;eh-full eh-a&quot; type=&quot;text&quot; placeholder=&quot;Yes, she does. / No, she doesn’t.&quot; aria-label=&quot;Задание 10, ответ 5&quot;&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;eh-section eh-section-wide&quot; aria-labelledby=&quot;eh-title-gir&quot;&gt;
+      &lt;div class=&quot;eh-section-head&quot;&gt;
+        &lt;span class=&quot;eh-number&quot;&gt;✓&lt;/span&gt;
+        &lt;div&gt;
+          &lt;h2 id=&quot;eh-title-gir&quot;&gt;Get it right! — Сделай правильно&lt;/h2&gt;
+          &lt;p class=&quot;eh-instruction&quot;&gt;Обведи, то есть выбери, правильное предложение.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;eh-rule&quot;&gt;
+        &lt;p&gt;&lt;strong&gt;Наречия частоты&lt;/strong&gt; (&lt;em&gt;always, often, sometimes, never&lt;/em&gt;)&lt;/p&gt;
+        &lt;p&gt;С глаголом &lt;strong&gt;to be&lt;/strong&gt;: &lt;span class=&quot;eh-formula&quot;&gt;подлежащее + to be + наречие&lt;/span&gt;&lt;br&gt;&lt;em&gt;He is always friendly.&lt;/em&gt;&lt;/p&gt;
+        &lt;p&gt;С другими глаголами: &lt;span class=&quot;eh-formula&quot;&gt;подлежащее + наречие + глагол&lt;/span&gt;&lt;br&gt;&lt;em&gt;I often watch football on TV.&lt;/em&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;eh-example&quot;&gt;&lt;strong&gt;Пример 0:&lt;/strong&gt; правильный вариант — &lt;em&gt;I often eat ice cream.&lt;/em&gt;&lt;/p&gt;
+      &lt;div class=&quot;eh-choice-list&quot; id=&quot;eh-gir&quot;&gt;
+        &lt;div class=&quot;eh-choice-item&quot; data-answer=&quot;b&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;1&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-options&quot;&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir1&quot; value=&quot;a&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;a&lt;/span&gt; I play often computer games.&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir1&quot; value=&quot;b&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;b&lt;/span&gt; I often play computer games.&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-choice-item&quot; data-answer=&quot;a&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;2&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-options&quot;&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir2&quot; value=&quot;a&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;a&lt;/span&gt; I always go to the cinema with my friends.&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir2&quot; value=&quot;b&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;b&lt;/span&gt; Always I go to the cinema with my friends.&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-choice-item&quot; data-answer=&quot;a&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;3&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-options&quot;&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir3&quot; value=&quot;a&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;a&lt;/span&gt; That singer is always great.&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir3&quot; value=&quot;b&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;b&lt;/span&gt; That singer always is great.&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-choice-item&quot; data-answer=&quot;b&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;4&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-options&quot;&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir4&quot; value=&quot;a&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;a&lt;/span&gt; I ride a bike in the park never.&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir4&quot; value=&quot;b&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;b&lt;/span&gt; I never ride a bike in the park.&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;eh-choice-item&quot; data-answer=&quot;b&quot;&gt;&lt;span class=&quot;eh-index&quot;&gt;5&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;eh-options&quot;&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir5&quot; value=&quot;a&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;a&lt;/span&gt; I sometimes am bored.&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;eh-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gir5&quot; value=&quot;b&quot;&gt;&lt;span&gt;&lt;span class=&quot;eh-option-letter&quot;&gt;b&lt;/span&gt; I am sometimes bored.&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;eh-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;div class=&quot;eh-actions&quot;&gt;
+    &lt;button class=&quot;eh-primary&quot; id=&quot;eh-check&quot; type=&quot;button&quot;&gt;Проверить работу&lt;/button&gt;
+    &lt;button class=&quot;eh-secondary&quot; id=&quot;eh-reset&quot; type=&quot;button&quot;&gt;Начать заново&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;eh-result&quot; id=&quot;eh-result&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;english-homework-app&#x27;);
+      if (!root) return;
+      const storageKey = &#x27;english-homework-unit5-v1&#x27;;
+      const inputs = [...root.querySelectorAll(&#x27;input&#x27;)];
+      const normalize = (value) =&gt; value.toLowerCase().replace(/[’‘]/g, &quot;&#x27;&quot;).replace(/[?.!,]/g, &#x27;&#x27;).replace(/\s+/g, &#x27; &#x27;).trim();
+
+      function save() {
+        const state = inputs.map((input) =&gt; input.type === &#x27;radio&#x27; ? input.checked : input.value);
+        try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (_) {}
+        updateProgress();
+      }
+
+      function load() {
+        try {
+          const state = JSON.parse(localStorage.getItem(storageKey) || &#x27;null&#x27;);
+          if (!Array.isArray(state)) return;
+          inputs.forEach((input, index) =&gt; {
+            if (input.type === &#x27;radio&#x27;) input.checked = Boolean(state[index]);
+            else if (typeof state[index] === &#x27;string&#x27;) input.value = state[index];
+          });
+        } catch (_) {}
+      }
+
+      function completedCount() {
+        const ex9 = [...root.querySelectorAll(&#x27;#eh-ex9 input&#x27;)].filter(input =&gt; input.value.trim()).length;
+        const ex10 = [...root.querySelectorAll(&#x27;#eh-ex10 .eh-item&#x27;)].filter(item =&gt; item.querySelector(&#x27;.eh-q&#x27;).value.trim() &amp;&amp; item.querySelector(&#x27;.eh-a&#x27;).value.trim()).length;
+        const gir = [...root.querySelectorAll(&#x27;#eh-gir .eh-choice-item&#x27;)].filter(item =&gt; item.querySelector(&#x27;input:checked&#x27;)).length;
+        return ex9 + ex10 + gir;
+      }
+
+      function updateProgress() {
+        const done = completedCount();
+        root.querySelector(&#x27;#eh-progress-text&#x27;).textContent = `${done} из 15`;
+        root.querySelector(&#x27;#eh-progress-bar&#x27;).style.width = `${done / 15 * 100}%`;
+      }
+
+      function setFeedback(item, ok, message) {
+        const feedback = item.querySelector(&#x27;.eh-feedback&#x27;);
+        feedback.className = `eh-feedback ${ok ? &#x27;correct&#x27; : &#x27;wrong&#x27;}`;
+        feedback.textContent = message;
+      }
+
+      function clearMarks() {
+        root.querySelectorAll(&#x27;.is-correct, .is-wrong&#x27;).forEach(el =&gt; el.classList.remove(&#x27;is-correct&#x27;, &#x27;is-wrong&#x27;));
+        root.querySelectorAll(&#x27;.eh-feedback&#x27;).forEach(el =&gt; { el.className = &#x27;eh-feedback&#x27;; el.textContent = &#x27;&#x27;; });
+      }
+
+      function check() {
+        clearMarks();
+        let correct = 0;
+        const total = 15;
+
+        root.querySelectorAll(&#x27;#eh-ex9 .eh-item&#x27;).forEach(item =&gt; {
+          const input = item.querySelector(&#x27;input&#x27;);
+          const expected = item.dataset.answer;
+          const ok = normalize(input.value) === expected;
+          input.classList.add(ok ? &#x27;is-correct&#x27; : &#x27;is-wrong&#x27;);
+          setFeedback(item, ok, ok ? &#x27;Верно!&#x27; : `Попробуй ещё раз: здесь нужно ${expected === &#x27;do&#x27; ? &#x27;Do&#x27; : &#x27;Does&#x27;}.`);
+          if (ok) correct++;
+        });
+
+        root.querySelectorAll(&#x27;#eh-ex10 .eh-item&#x27;).forEach(item =&gt; {
+          const q = item.querySelector(&#x27;.eh-q&#x27;);
+          const a = item.querySelector(&#x27;.eh-a&#x27;);
+          const questionOk = normalize(q.value) === item.dataset.question;
+          const answerOk = a.value.trim().length &gt; 0;
+          q.classList.add(questionOk ? &#x27;is-correct&#x27; : &#x27;is-wrong&#x27;);
+          a.classList.add(answerOk ? &#x27;is-correct&#x27; : &#x27;is-wrong&#x27;);
+          if (questionOk &amp;&amp; answerOk) {
+            setFeedback(item, true, &#x27;Вопрос составлен верно, личный ответ записан.&#x27;);
+            correct++;
+          } else if (!questionOk) {
+            const model = item.dataset.question.replace(/^./, c =&gt; c.toUpperCase()) + &#x27;?&#x27;;
+            setFeedback(item, false, `Проверь порядок слов. Правильный вопрос: ${model}`);
+          } else {
+            setFeedback(item, false, &#x27;Вопрос верный. Теперь напиши личный ответ.&#x27;);
+          }
+        });
+
+        root.querySelectorAll(&#x27;#eh-gir .eh-choice-item&#x27;).forEach(item =&gt; {
+          const checked = item.querySelector(&#x27;input:checked&#x27;);
+          const ok = Boolean(checked &amp;&amp; checked.value === item.dataset.answer);
+          if (checked) checked.closest(&#x27;.eh-option&#x27;).classList.add(ok ? &#x27;is-correct&#x27; : &#x27;is-wrong&#x27;);
+          setFeedback(item, ok, ok ? &#x27;Верно!&#x27; : checked ? &#x27;Проверь место наречия в предложении.&#x27; : &#x27;Выбери один вариант.&#x27;);
+          if (ok) correct++;
+        });
+
+        const percent = Math.round(correct / total * 100);
+        const result = root.querySelector(&#x27;#eh-result&#x27;);
+        const message = correct === total ? &#x27;Отлично — всё правильно!&#x27; : correct &gt;= 12 ? &#x27;Очень хорошо! Исправь отмеченные места.&#x27; : &#x27;Хорошее начало. Посмотри подсказки и попробуй ещё раз.&#x27;;
+        result.innerHTML = `&lt;strong&gt;${correct} из ${total} · ${percent}%&lt;/strong&gt;&lt;br&gt;${message}`;
+        result.classList.add(&#x27;show&#x27;);
+        result.scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;nearest&#x27; });
+        save();
+      }
+
+      function reset() {
+        if (!window.confirm(&#x27;Удалить все введённые ответы и начать заново?&#x27;)) return;
+        inputs.forEach(input =&gt; { if (input.type === &#x27;radio&#x27;) input.checked = false; else input.value = &#x27;&#x27;; });
+        clearMarks();
+        root.querySelector(&#x27;#eh-result&#x27;).classList.remove(&#x27;show&#x27;);
+        try { localStorage.removeItem(storageKey); } catch (_) {}
+        updateProgress();
+      }
+
+      inputs.forEach(input =&gt; input.addEventListener(&#x27;input&#x27;, save));
+      inputs.forEach(input =&gt; input.addEventListener(&#x27;change&#x27;, save));
+      root.querySelector(&#x27;#eh-check&#x27;).addEventListener(&#x27;click&#x27;, check);
+      root.querySelector(&#x27;#eh-reset&#x27;).addEventListener(&#x27;click&#x27;, reset);
+      load();
+      updateProgress();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
