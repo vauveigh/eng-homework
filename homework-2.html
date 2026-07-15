@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffef9">
+  <title>Домашняя работа — повторение</title>
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      background: #fffef9;
+    }
+    body {
+      min-width: 320px;
+      margin: 0;
+      background: #fffef9;
+    }
+  </style>
+</head>
+<body>
+<div id="review-homework-app" class="rh-app">
+  <style>
+    #review-homework-app {
+      --rh-purple: #9d3e8d;
+      --rh-purple-dark: #702765;
+      --rh-purple-soft: #f8ecf5;
+      --rh-cyan: #3cb4c7;
+      --rh-cyan-soft: #e5f7fa;
+      --rh-yellow: #f8b81c;
+      --rh-ink: #25232a;
+      --rh-muted: #6e6873;
+      --rh-paper: #fffdfb;
+      --rh-line: #e7dce5;
+      --rh-correct: #237a49;
+      --rh-correct-bg: #eaf7ef;
+      --rh-wrong: #b53b38;
+      --rh-wrong-bg: #fff0ef;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 16px 44px;
+      color: var(--rh-ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 100% 0, rgba(60, 180, 199, .12), transparent 24rem),
+        radial-gradient(circle at 0 18%, rgba(157, 62, 141, .09), transparent 22rem),
+        var(--rh-paper);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    #review-homework-app * { box-sizing: border-box; }
+    #review-homework-app .rh-hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 0 24px;
+      border-bottom: 3px solid var(--rh-purple);
+    }
+    #review-homework-app .rh-kicker {
+      margin: 0 0 8px;
+      color: var(--rh-purple-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    #review-homework-app h1 {
+      margin: 0;
+      max-width: 700px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+    #review-homework-app .rh-lead {
+      max-width: 720px;
+      margin: 14px 0 0;
+      color: var(--rh-muted);
+      line-height: 1.55;
+    }
+    #review-homework-app .rh-badge {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border: 2px solid var(--rh-purple);
+      border-radius: 10px;
+      color: var(--rh-purple-dark);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    #review-homework-app .rh-progress-wrap { padding: 18px 0 3px; }
+    #review-homework-app .rh-progress-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      color: var(--rh-muted);
+      font-size: .9rem;
+    }
+    #review-homework-app .rh-progress-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #eee5ec;
+    }
+    #review-homework-app .rh-progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--rh-purple), var(--rh-cyan));
+      transition: width .3s ease;
+    }
+    #review-homework-app .rh-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+      align-items: start;
+    }
+    #review-homework-app .rh-section {
+      padding: 22px;
+      border: 1px solid var(--rh-line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 13px 32px rgba(75, 38, 70, .07);
+    }
+    #review-homework-app .rh-wide { grid-column: 1 / -1; }
+    #review-homework-app .rh-section-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 16px;
+    }
+    #review-homework-app .rh-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 13px;
+      background: var(--rh-purple);
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      transform: rotate(-2deg);
+    }
+    #review-homework-app h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+    #review-homework-app .rh-instruction {
+      margin: 0;
+      color: var(--rh-muted);
+      line-height: 1.45;
+    }
+    #review-homework-app .rh-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0 0 17px;
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--rh-purple-soft);
+    }
+    #review-homework-app .rh-word {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--rh-purple-dark);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    #review-homework-app .rh-items { display: grid; gap: 13px; }
+    #review-homework-app .rh-item {
+      display: grid;
+      grid-template-columns: 27px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      padding-bottom: 13px;
+      border-bottom: 1px dashed var(--rh-line);
+    }
+    #review-homework-app .rh-item:last-child { padding-bottom: 0; border-bottom: 0; }
+    #review-homework-app .rh-index {
+      padding-top: 10px;
+      color: var(--rh-purple-dark);
+      font-weight: 800;
+    }
+    #review-homework-app .rh-prompt {
+      margin: 0 0 7px;
+      line-height: 1.45;
+    }
+    #review-homework-app select,
+    #review-homework-app input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid #cbbdca;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--rh-ink);
+      font-family: inherit;
+      font-size: 16px !important;
+      line-height: 1.25;
+      padding: 9px 11px;
+      outline: none;
+    }
+    #review-homework-app select:focus,
+    #review-homework-app input[type="text"]:focus {
+      border-color: var(--rh-purple);
+      box-shadow: 0 0 0 3px rgba(157,62,141,.15);
+    }
+    #review-homework-app .rh-feedback {
+      min-height: 1.25em;
+      margin: 6px 0 0;
+      color: var(--rh-muted);
+      font-size: .84rem;
+      line-height: 1.35;
+    }
+    #review-homework-app .is-correct {
+      border-color: var(--rh-correct) !important;
+      background: var(--rh-correct-bg) !important;
+    }
+    #review-homework-app .is-wrong {
+      border-color: var(--rh-wrong) !important;
+      background: var(--rh-wrong-bg) !important;
+    }
+    #review-homework-app .rh-feedback.correct { color: var(--rh-correct); }
+    #review-homework-app .rh-feedback.wrong { color: var(--rh-wrong); }
+    #review-homework-app .rh-emoji {
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 1.25rem;
+      vertical-align: middle;
+    }
+    #review-homework-app .rh-pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 9px;
+    }
+    #review-homework-app .rh-pair label {
+      display: block;
+      margin: 0 0 5px;
+      color: var(--rh-muted);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+    #review-homework-app .rh-rule {
+      margin-bottom: 17px;
+      padding: 14px;
+      border: 2px dotted var(--rh-cyan);
+      border-radius: 13px;
+      background: var(--rh-cyan-soft);
+      line-height: 1.5;
+    }
+    #review-homework-app .rh-rule p { margin: 0 0 6px; }
+    #review-homework-app .rh-rule p:last-child { margin-bottom: 0; }
+    #review-homework-app .rh-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 25px;
+    }
+    #review-homework-app button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 19px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    #review-homework-app .rh-primary { background: var(--rh-purple); color: #fff; }
+    #review-homework-app .rh-primary:hover { background: var(--rh-purple-dark); }
+    #review-homework-app .rh-secondary { background: #eee7ed; color: var(--rh-ink); }
+    #review-homework-app .rh-result {
+      display: none;
+      margin-top: 18px;
+      padding: 17px;
+      border-radius: 14px;
+      background: var(--rh-purple-soft);
+      color: var(--rh-purple-dark);
+      text-align: center;
+    }
+    #review-homework-app .rh-result.show { display: block; }
+    #review-homework-app .rh-result strong { font-size: 1.15rem; }
+    @media (max-width: 780px) {
+      #review-homework-app .rh-layout { grid-template-columns: 1fr; }
+      #review-homework-app .rh-wide { grid-column: auto; }
+    }
+    @media (max-width: 520px) {
+      #review-homework-app { padding-inline: 12px; }
+      #review-homework-app .rh-hero { display: block; }
+      #review-homework-app .rh-badge { display: inline-block; margin-top: 17px; }
+      #review-homework-app .rh-section { padding: 17px 14px; }
+      #review-homework-app .rh-section-head { gap: 10px; }
+      #review-homework-app .rh-number { width: 36px; height: 36px; font-size: 1.15rem; }
+      #review-homework-app .rh-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <header class="rh-hero">
+    <div>
+      <p class="rh-kicker">Домашняя работа · повторение</p>
+      <h1>Words &amp; Present Simple</h1>
+      <p class="rh-lead">Повтори лексику, личные местоимения, притяжательные прилагательные и Present Simple с <em>to be</em> и обычными глаголами.</p>
+    </div>
+    <div class="rh-badge">REVIEW · 6 EXERCISES</div>
+  </header>
+
+  <div class="rh-progress-wrap" aria-label="Прогресс выполнения">
+    <div class="rh-progress-row"><span>Прогресс</span><strong id="rh-progress-text">0 из 52</strong></div>
+    <div class="rh-progress-track"><div class="rh-progress-bar" id="rh-progress-bar"></div></div>
+  </div>
+
+  <main class="rh-layout">
+    <section class="rh-section" aria-labelledby="rh-title-1">
+      <div class="rh-section-head"><span class="rh-number">1</span><div><h2 id="rh-title-1">How do they feel?</h2><p class="rh-instruction">Выбери подходящее слово для каждой ситуации.</p></div></div>
+      <div class="rh-bank" aria-label="Слова для повторения"><span class="rh-word">angry</span><span class="rh-word">bored</span><span class="rh-word">cold</span><span class="rh-word">excited</span><span class="rh-word">hot</span><span class="rh-word">hungry</span><span class="rh-word">sad</span><span class="rh-word">thirsty</span><span class="rh-word">tired</span><span class="rh-word">worried</span></div>
+      <div class="rh-items" data-group="feelings">
+        <div class="rh-item" data-answer="tired"><span class="rh-index">1</span><div><p class="rh-prompt"><span class="rh-emoji">😴</span>Ben worked all day. He is …</p><select aria-label="Упражнение 1, вопрос 1"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="hot"><span class="rh-index">2</span><div><p class="rh-prompt"><span class="rh-emoji">🥵</span>It is 35°C. Mia is …</p><select aria-label="Упражнение 1, вопрос 2"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="hungry"><span class="rh-index">3</span><div><p class="rh-prompt"><span class="rh-emoji">😋</span>Leo didn’t have breakfast. He is …</p><select aria-label="Упражнение 1, вопрос 3"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="worried"><span class="rh-index">4</span><div><p class="rh-prompt"><span class="rh-emoji">😟</span>Amy can’t find her phone. She is …</p><select aria-label="Упражнение 1, вопрос 4"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="excited"><span class="rh-index">5</span><div><p class="rh-prompt"><span class="rh-emoji">🤩</span>We are going on holiday tomorrow. We are …</p><select aria-label="Упражнение 1, вопрос 5"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="thirsty"><span class="rh-index">6</span><div><p class="rh-prompt"><span class="rh-emoji">😓</span>Kate wants a glass of water. She is …</p><select aria-label="Упражнение 1, вопрос 6"><option value="">Выбери слово</option><option>angry</option><option>bored</option><option>cold</option><option>excited</option><option>hot</option><option>hungry</option><option>sad</option><option>thirsty</option><option>tired</option><option>worried</option></select><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+
+    <section class="rh-section" aria-labelledby="rh-title-2">
+      <div class="rh-section-head"><span class="rh-number">2</span><div><h2 id="rh-title-2">Choose the adjective</h2><p class="rh-instruction">Выбери прилагательное, которое завершает предложение.</p></div></div>
+      <div class="rh-bank"><span class="rh-word">quick</span><span class="rh-word">big</span><span class="rh-word">cheap</span><span class="rh-word">easy</span><span class="rh-word">healthy</span><span class="rh-word">expensive</span><span class="rh-word">dangerous</span><span class="rh-word">good</span></div>
+      <div class="rh-items" data-group="adjectives">
+        <div class="rh-item" data-answer="quick"><span class="rh-index">1</span><div><p class="rh-prompt">A cheetah is very …</p><select aria-label="Упражнение 2, вопрос 1"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="big"><span class="rh-index">2</span><div><p class="rh-prompt">An elephant is a … animal.</p><select aria-label="Упражнение 2, вопрос 2"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="cheap"><span class="rh-index">3</span><div><p class="rh-prompt">This T-shirt is only £3. It is …</p><select aria-label="Упражнение 2, вопрос 3"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="easy"><span class="rh-index">4</span><div><p class="rh-prompt">The test has one question. It is …</p><select aria-label="Упражнение 2, вопрос 4"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="healthy"><span class="rh-index">5</span><div><p class="rh-prompt">Fruit and vegetables are …</p><select aria-label="Упражнение 2, вопрос 5"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="expensive"><span class="rh-index">6</span><div><p class="rh-prompt">That phone costs £1,000. It is …</p><select aria-label="Упражнение 2, вопрос 6"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="dangerous"><span class="rh-index">7</span><div><p class="rh-prompt">Swimming in a storm is …</p><select aria-label="Упражнение 2, вопрос 7"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="good"><span class="rh-index">8</span><div><p class="rh-prompt">Your answer is correct. It is a … answer.</p><select aria-label="Упражнение 2, вопрос 8"><option value="">Выбери слово</option><option>quick</option><option>big</option><option>cheap</option><option>easy</option><option>healthy</option><option>expensive</option><option>dangerous</option><option>good</option></select><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+
+    <section class="rh-section" aria-labelledby="rh-title-3">
+      <div class="rh-section-head"><span class="rh-number">3</span><div><h2 id="rh-title-3">Daily routine</h2><p class="rh-instruction">Выбери английское выражение для каждого действия.</p></div></div>
+      <div class="rh-bank"><span class="rh-word">wake up</span><span class="rh-word">get up</span><span class="rh-word">have a shower</span><span class="rh-word">get dressed</span><span class="rh-word">have breakfast</span><span class="rh-word">pack your bag</span><span class="rh-word">go to school</span><span class="rh-word">go home</span><span class="rh-word">brush your teeth</span><span class="rh-word">check your phone</span><span class="rh-word">do your homework</span><span class="rh-word">go to bed</span></div>
+      <div class="rh-items" data-group="routine">
+        <div class="rh-item" data-answer="wake up"><span class="rh-index">1</span><div><p class="rh-prompt">просыпаться</p><select aria-label="Упражнение 3, вопрос 1"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="get up"><span class="rh-index">2</span><div><p class="rh-prompt">вставать с кровати</p><select aria-label="Упражнение 3, вопрос 2"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="have a shower"><span class="rh-index">3</span><div><p class="rh-prompt">принимать душ</p><select aria-label="Упражнение 3, вопрос 3"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="get dressed"><span class="rh-index">4</span><div><p class="rh-prompt">одеваться</p><select aria-label="Упражнение 3, вопрос 4"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="have breakfast"><span class="rh-index">5</span><div><p class="rh-prompt">завтракать</p><select aria-label="Упражнение 3, вопрос 5"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="pack your bag"><span class="rh-index">6</span><div><p class="rh-prompt">собирать рюкзак</p><select aria-label="Упражнение 3, вопрос 6"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="go to school"><span class="rh-index">7</span><div><p class="rh-prompt">идти в школу</p><select aria-label="Упражнение 3, вопрос 7"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="go home"><span class="rh-index">8</span><div><p class="rh-prompt">идти домой</p><select aria-label="Упражнение 3, вопрос 8"><option value="">Выбери выражение</option><option>wake up</option><option>get up</option><option>have a shower</option><option>get dressed</option><option>have breakfast</option><option>pack your bag</option><option>go to school</option><option>go home</option><option>brush your teeth</option><option>check your phone</option><option>do your homework</option><option>go to bed</option></select><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+
+    <section class="rh-section" aria-labelledby="rh-title-4">
+      <div class="rh-section-head"><span class="rh-number">4</span><div><h2 id="rh-title-4">Free time</h2><p class="rh-instruction">Прочитай ситуацию и выбери подходящее занятие.</p></div></div>
+      <div class="rh-bank"><span class="rh-word">chat online</span><span class="rh-word">download songs</span><span class="rh-word">go for a bike ride</span><span class="rh-word">go shopping</span><span class="rh-word">hang out with friends</span><span class="rh-word">listen to music</span><span class="rh-word">make videos</span><span class="rh-word">play an instrument</span><span class="rh-word">play video games</span><span class="rh-word">read a book/magazine</span><span class="rh-word">take photos</span><span class="rh-word">watch TV</span></div>
+      <div class="rh-items" data-group="free-time">
+        <div class="rh-item" data-answer="chat online"><span class="rh-index">1</span><div><p class="rh-prompt">I talk to my friends on the internet.</p><select aria-label="Упражнение 4, вопрос 1"><option value="">Выбери занятие</option><option>chat online</option><option>download songs</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="go for a bike ride"><span class="rh-index">2</span><div><p class="rh-prompt">I ride my bike in the park.</p><select aria-label="Упражнение 4, вопрос 2"><option value="">Выбери занятие</option><option>go for a bike ride</option><option>go shopping</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="hang out with friends"><span class="rh-index">3</span><div><p class="rh-prompt">I spend time with my friends after school.</p><select aria-label="Упражнение 4, вопрос 3"><option value="">Выбери занятие</option><option>hang out with friends</option><option>listen to music</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="make videos"><span class="rh-index">4</span><div><p class="rh-prompt">I create short films on my phone.</p><select aria-label="Упражнение 4, вопрос 4"><option value="">Выбери занятие</option><option>make videos</option><option>play an instrument</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="play video games"><span class="rh-index">5</span><div><p class="rh-prompt">I play on my computer or console.</p><select aria-label="Упражнение 4, вопрос 5"><option value="">Выбери занятие</option><option>play video games</option><option>read a book/magazine</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="take photos"><span class="rh-index">6</span><div><p class="rh-prompt">I use my camera to make pictures.</p><select aria-label="Упражнение 4, вопрос 6"><option value="">Выбери занятие</option><option>take photos</option><option>watch TV</option></select><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+
+    <section class="rh-section rh-wide" aria-labelledby="rh-title-5">
+      <div class="rh-section-head"><span class="rh-number">5</span><div><h2 id="rh-title-5">Pronouns &amp; possessive adjectives</h2><p class="rh-instruction">В каждой строке выбери личное местоимение и притяжательное прилагательное.</p></div></div>
+      <div class="rh-rule"><p><strong>Личные местоимения:</strong> I, you, he, she, it, we, they.</p><p><strong>Притяжательные прилагательные:</strong> my, your, his, her, its, our, their.</p></div>
+      <div class="rh-items" data-group="pronouns">
+        <div class="rh-item" data-pronoun="she" data-possessive="her"><span class="rh-index">1</span><div><p class="rh-prompt">Anna is my sister. ___ is 12. ___ favourite activity is reading.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 1, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 1, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="he" data-possessive="his"><span class="rh-index">2</span><div><p class="rh-prompt">Tom is excited. ___ has a new bike. ___ bike is quick.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 2, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 2, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="it" data-possessive="its"><span class="rh-index">3</span><div><p class="rh-prompt">This is my dog. ___ is friendly. ___ name is Spot.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 3, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 3, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="we" data-possessive="our"><span class="rh-index">4</span><div><p class="rh-prompt">Sam and I are classmates. ___ go to school together. ___ school is big.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 4, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 4, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="they" data-possessive="their"><span class="rh-index">5</span><div><p class="rh-prompt">My friends are at home. ___ do homework. ___ books are on the table.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 5, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 5, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="you" data-possessive="your"><span class="rh-index">6</span><div><p class="rh-prompt">Kate, ___ are my friend. Is this ___ phone?</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 6, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 6, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-pronoun="i" data-possessive="my"><span class="rh-index">7</span><div><p class="rh-prompt">___ am Alex. ___ favourite activity is taking photos.</p><div class="rh-pair"><div><label>Личное местоимение</label><select class="rh-pronoun" aria-label="Упражнение 5, строка 7, местоимение"><option value="">Выбери</option><option>I</option><option>you</option><option>he</option><option>she</option><option>it</option><option>we</option><option>they</option></select></div><div><label>Притяжательное прилагательное</label><select class="rh-possessive" aria-label="Упражнение 5, строка 7, притяжательное"><option value="">Выбери</option><option>my</option><option>your</option><option>his</option><option>her</option><option>its</option><option>our</option><option>their</option></select></div></div><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+
+    <section class="rh-section rh-wide" aria-labelledby="rh-title-6">
+      <div class="rh-section-head"><span class="rh-number">6</span><div><h2 id="rh-title-6">Present Simple mix</h2><p class="rh-instruction">Выбери правильную форму <em>to be</em>, вспомогательного или смыслового глагола.</p></div></div>
+      <div class="rh-rule"><p><strong>To be:</strong> I <em>am</em>; he/she/it <em>is</em>; you/we/they <em>are</em>.</p><p><strong>Обычные глаголы:</strong> I/you/we/they <em>play</em>; he/she/it <em>plays</em>. Вопросы: <em>Do/Does</em>. Отрицания: <em>don’t/doesn’t</em>.</p></div>
+      <div class="rh-items" data-group="present-simple">
+        <div class="rh-item" data-answer="am"><span class="rh-index">1</span><div><p class="rh-prompt">I ___ cold. Please close the window.</p><select aria-label="Упражнение 6, вопрос 1"><option value="">Выбери</option><option>am</option><option>is</option><option>are</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="is"><span class="rh-index">2</span><div><p class="rh-prompt">She ___ sad today.</p><select aria-label="Упражнение 6, вопрос 2"><option value="">Выбери</option><option>am</option><option>is</option><option>are</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="are"><span class="rh-index">3</span><div><p class="rh-prompt">They ___ bored. The film isn’t good.</p><select aria-label="Упражнение 6, вопрос 3"><option value="">Выбери</option><option>am</option><option>is</option><option>are</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="checks"><span class="rh-index">4</span><div><p class="rh-prompt">Leo ___ his phone every morning.</p><select aria-label="Упражнение 6, вопрос 4"><option value="">Выбери</option><option>check</option><option>checks</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="brush"><span class="rh-index">5</span><div><p class="rh-prompt">We ___ our teeth after breakfast.</p><select aria-label="Упражнение 6, вопрос 5"><option value="">Выбери</option><option>brush</option><option>brushes</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="goes"><span class="rh-index">6</span><div><p class="rh-prompt">My brother ___ to bed at ten.</p><select aria-label="Упражнение 6, вопрос 6"><option value="">Выбери</option><option>go</option><option>goes</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="do"><span class="rh-index">7</span><div><p class="rh-prompt">___ you listen to music after school?</p><select aria-label="Упражнение 6, вопрос 7"><option value="">Выбери</option><option>Do</option><option>Does</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="does"><span class="rh-index">8</span><div><p class="rh-prompt">___ Anna download songs?</p><select aria-label="Упражнение 6, вопрос 8"><option value="">Выбери</option><option>Do</option><option>Does</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="don't"><span class="rh-index">9</span><div><p class="rh-prompt">I ___ watch TV in the morning.</p><select aria-label="Упражнение 6, вопрос 9"><option value="">Выбери</option><option value="don't">don’t</option><option value="doesn't">doesn’t</option></select><p class="rh-feedback"></p></div></div>
+        <div class="rh-item" data-answer="doesn't"><span class="rh-index">10</span><div><p class="rh-prompt">Tom ___ go shopping on Monday.</p><select aria-label="Упражнение 6, вопрос 10"><option value="">Выбери</option><option value="don't">don’t</option><option value="doesn't">doesn’t</option></select><p class="rh-feedback"></p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="rh-actions"><button class="rh-primary" id="rh-check" type="button">Проверить работу</button><button class="rh-secondary" id="rh-reset" type="button">Начать заново</button></div>
+  <div class="rh-result" id="rh-result" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const root = document.getElementById('review-homework-app');
+      if (!root) return;
+      const storageKey = 'english-review-homework-v1';
+      const controls = [...root.querySelectorAll('select, input[type="text"]')];
+      const total = controls.length;
+      const normalize = value => value.toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, ' ').trim();
+
+      function save() {
+        try { localStorage.setItem(storageKey, JSON.stringify(controls.map(control => control.value))); } catch (_) {}
+        updateProgress();
+      }
+
+      function load() {
+        try {
+          const state = JSON.parse(localStorage.getItem(storageKey) || 'null');
+          if (!Array.isArray(state)) return;
+          controls.forEach((control, index) => { if (typeof state[index] === 'string') control.value = state[index]; });
+        } catch (_) {}
+      }
+
+      function updateProgress() {
+        const done = controls.filter(control => control.value.trim()).length;
+        root.querySelector('#rh-progress-text').textContent = `${done} из ${total}`;
+        root.querySelector('#rh-progress-bar').style.width = `${done / total * 100}%`;
+      }
+
+      function setFeedback(item, ok, message) {
+        const feedback = item.querySelector('.rh-feedback');
+        feedback.className = `rh-feedback ${ok ? 'correct' : 'wrong'}`;
+        feedback.textContent = message;
+      }
+
+      function mark(control, ok) {
+        control.classList.remove('is-correct', 'is-wrong');
+        control.classList.add(ok ? 'is-correct' : 'is-wrong');
+      }
+
+      function check() {
+        let correct = 0;
+        root.querySelectorAll('.rh-item').forEach(item => {
+          const pronounControl = item.querySelector('.rh-pronoun');
+          const possessiveControl = item.querySelector('.rh-possessive');
+          if (pronounControl && possessiveControl) {
+            const pronounOk = normalize(pronounControl.value) === item.dataset.pronoun;
+            const possessiveOk = normalize(possessiveControl.value) === item.dataset.possessive;
+            mark(pronounControl, pronounOk);
+            mark(possessiveControl, possessiveOk);
+            if (pronounOk) correct++;
+            if (possessiveOk) correct++;
+            setFeedback(item, pronounOk && possessiveOk, pronounOk && possessiveOk ? 'Оба ответа верны!' : `Правильная пара: ${item.dataset.pronoun.replace(/^./, c => c.toUpperCase())} / ${item.dataset.possessive}.`);
+            return;
+          }
+          const control = item.querySelector('select, input[type="text"]');
+          const ok = control && normalize(control.value) === normalize(item.dataset.answer || '');
+          if (control) mark(control, ok);
+          if (ok) correct++;
+          setFeedback(item, ok, ok ? 'Верно!' : control && control.value ? `Правильный ответ: ${item.dataset.answer}.` : 'Сначала выбери ответ.');
+        });
+        const percent = Math.round(correct / total * 100);
+        const result = root.querySelector('#rh-result');
+        const message = correct === total ? 'Прекрасно — всё правильно!' : correct >= Math.ceil(total * .8) ? 'Очень хорошо! Исправь отмеченные места.' : 'Хорошее начало. Посмотри подсказки и попробуй ещё раз.';
+        result.innerHTML = `<strong>${correct} из ${total} · ${percent}%</strong><br>${message}`;
+        result.classList.add('show');
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        save();
+      }
+
+      function reset() {
+        if (!window.confirm('Удалить все ответы и начать заново?')) return;
+        controls.forEach(control => { control.value = ''; control.classList.remove('is-correct', 'is-wrong'); });
+        root.querySelectorAll('.rh-feedback').forEach(feedback => { feedback.className = 'rh-feedback'; feedback.textContent = ''; });
+        root.querySelector('#rh-result').classList.remove('show');
+        try { localStorage.removeItem(storageKey); } catch (_) {}
+        updateProgress();
+      }
+
+      controls.forEach(control => control.addEventListener('change', save));
+      controls.forEach(control => control.addEventListener('input', save));
+      root.querySelector('#rh-check').addEventListener('click', check);
+      root.querySelector('#rh-reset').addEventListener('click', reset);
+      load();
+      updateProgress();
+    })();
+  </script>
+</div>
+
+</body>
+</html>
